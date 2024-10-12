@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폭약량 계산기</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUVv_OtsQ2h_MsCVco0eQPoqtUrzWgLJg&libraries=places,geometry"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #DC143C; /* 크림슨 */
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        input, button {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            border: 1px solid #3c3c3c;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #B22222; /* 파이어브릭 */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        button:hover {
+            background-color: #8B0000; /* 다크 레드 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            margin-top: 20px;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #3c3c3c;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #8B0000; /* 다크 레드 */
+            font-weight: bold;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #262626;
+        }
+        .result, .pressure-table {
+            margin-top: 20px;
+            background-color: #2c2c2c;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .map {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #FF6347; /* 토마토 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>폭약량 계산기</h1>
+        <div class="input-group">
+            <label for="explosiveAmount">폭약량 (g)</label>
+            <input type="number" id="explosiveAmount" min="0" step="1" placeholder="폭약량을 입력하세요">
+        </div>
+        <div class="input-group">
+            <label for="address">주소 (선택사항)</label>
+            <input type="text" id="address" placeholder="주소를 입력하세요">
+        </div>
+        <button id="calculateBtn">계산하기</button>
+        <div id="result" class="result"></div>
+        <div id="pressureTable" class="pressure-table"></div>
+        <div id="map" class="map"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
