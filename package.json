@@ -1,0 +1,28 @@
+{
+    "name": "pressure_gauge",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run build:js && npm run build:css && npm run build:html",
+        "build:js": "uglifyjs src/script.js -o build/script.js",
+        "build:css": "cleancss -o build/styles.css src/styles.css",
+        "build:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true src/index.html -o build/index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rlaehfid8881/pressure_gauge.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rlaehfid8881/pressure_gauge/issues"
+    },
+    "homepage": "https://github.com/rlaehfid8881/pressure_gauge#readme",
+    "dependencies": {
+        "clean-css-cli": "^5.6.3",
+        "html-minifier": "^4.0.0",
+        "uglifyjs": "^2.4.11"
+    }
+}
